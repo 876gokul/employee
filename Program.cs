@@ -22,6 +22,17 @@ namespace employee
             sex = Console.ReadLine();
             Console.WriteLine("enter the employee salary");
             salary = Console.ReadLine();
+
+            Console.WriteLine("\nThank you for the deatils, Please check them");
+            Console.WriteLine($"Employee id: {id}");
+            Console.WriteLine($"Employee name: {name}");
+            Console.WriteLine($"Employee mobile: {mobile}");
+            Console.WriteLine($"Employee sex: {sex}");
+            Console.WriteLine($"Employee dob: {dob}");
+            Console.WriteLine($"Employee doj: {doj}");
+            Console.WriteLine($"Employee salary: {salary}");
+            Console.WriteLine("press any key to exit");
+            Console.ReadKey();
         }
     }
 }
