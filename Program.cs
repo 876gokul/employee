@@ -47,7 +47,7 @@ namespace employee
             bool validateDOB(string DOB){
                 bool result = false;
                 result = DateTime.TryParseExact(DOB, formats,new CultureInfo("en-US"),DateTimeStyles.None,out DateOfBirth);
-                if((DateTime.Now.Year - DateOfBirth.Year) < 18){
+                if((DateTime.Now.Year - DateOfBirth.Year) < 18 && (DateTime.Now.Year - DateOfBirth.Year) > 60){
                     result = false;
                 }
                 return result;
@@ -56,7 +56,7 @@ namespace employee
             bool validateDOJ(string DOJ){
                 bool result = false;
                 result = DateTime.TryParseExact(DOJ, formats,new CultureInfo("en-US"),DateTimeStyles.None,out DateOfJoining);
-                if((DateTime.Now.Year - DateOfJoining.Year) < 0 && (DateOfJoining.Year < DateOfBirth.Year)){
+                if((DateTime.Now.Year - DateOfJoining.Year) < 0 || (DateOfJoining.Year < DateOfBirth.Year)){
                     result = false;
                 }
                 return result;
