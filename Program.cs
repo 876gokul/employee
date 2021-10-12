@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+Title: Main program
+description: This file includes the CRUD operations for the employeeList
+Author: Gokul
+Created by: Gokul
+reviewed by:
+last edited : 10/12/2021
+*/
+
+using System;
 using System.Collections.Generic;
 
 namespace employee
@@ -78,9 +87,7 @@ namespace employee
                 Employee e = new Employee(id, name, DateOfBirth, DateOfJoining, mobile, sex, validSalary);
                 // adding it to the employee object list
                 employeeList.Add(e);
-
-                Console.WriteLine("The user was created successfully, press any key");
-                Console.ReadKey();
+                index=0;
             }
 
             void read(){
@@ -91,7 +98,7 @@ namespace employee
                     foreach (var employee in employeeList)
                     {
                         if(employee.id == id){
-                            employee.displayData()
+                            employee.displayData();
                         }
                     }
                 }
@@ -104,15 +111,96 @@ namespace employee
                 if(result){
                     foreach (var employee in employeeList)
                     {
-                        
+                        if(employee.id == id){
+                            employeeList.Remove(employee);
+                            break;
+                        }
                     }
+                    Console.WriteLine("Employee was removed successfully");
                 }
             }
 
-            create();
-            read();
+            void update(){
+                Console.WriteLine("Please enter the employee id : ");
+                id = Console.ReadLine();
+                string name;
+                string mobile;
+                bool result = Validate.validateId(id);
+                if(result){
+                    foreach (var employee in employeeList)
+                    {
+                        if(employee.id == id){
+                            getName:
+                            Console.WriteLine("enter the employee name");
+                            name = Console.ReadLine();
+                            result = Validate.validateName(name);
+                            if(!result){
+                                Console.Write("Sorry re ");
+                                goto getName; 
+                            }else{
+                                employee.setName(name);
+                            }
+                            getmobile:
+                            Console.WriteLine("enter the employee mobile");
+                            mobile = Console.ReadLine();
+                            result = Validate.validateMobile(mobile);
+                            if(!result){
+                                Console.Write("Sorry re ");
+                                goto getmobile; 
+                            }else{
+                                employee.setMobile(mobile);
+                            }
+                            break;
+                        }
+                    }
+                }
+            }     
 
-            
+            void run(){
+                string ch;
+                bool flag = true;
+                string operation;
+
+                do{
+                    Console.WriteLine("Welcome to employee application");
+                    Console.WriteLine("choose a opeartion");
+                    Console.WriteLine("1.Create a employee");
+                    Console.WriteLine("2.Read or Display a employee");
+                    Console.WriteLine("3.Update a Employee");
+                    Console.WriteLine("4.Delete a Employee");
+                    operation = Console.ReadLine();
+                    switch(operation){
+                        case "1": 
+                            create();
+                            Console.WriteLine("The employee was created successfully\n");
+                        break;
+                        case "2": 
+                            read();
+                        break;
+                        case "3": 
+                            update();
+                            Console.WriteLine("The employee was updated successfully\n");
+                        break;
+                        case "4": 
+                            delete();
+                            Console.WriteLine("The employee was removed successfully\n");
+                        break;
+                        default: 
+                            Console.WriteLine("Enter a valid choice");
+                        break;
+                    }
+                    Console.WriteLine("press c to continue");
+                    ch = Console.ReadLine();
+                    if(ch == "c" || ch == "C"){
+                        flag  = true;
+                    }else{
+                        flag = false;
+                    }
+                }while(flag);
+            }
+
+            run();
+
         }
     }
 }

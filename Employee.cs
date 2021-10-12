@@ -1,12 +1,95 @@
+/*
+Title:Employee class
+description: this class servers as a blueprint for the employee object
+Author: Gokul
+Created by: Gokul
+reviewed by:
+last edited : 12/10/2020
+*/
+
 using System;
 namespace employee
 {
     class Employee
     {
         // data attributes
-        public string id, name, sex, mobile;
-        public int salary; 
-        public DateTime DOB,DOJ;
+        public string id;
+        private string name;
+        private string sex;
+        private string mobile;
+        private int salary;
+        private DateTime DOB;
+        private DateTime DOJ;
+
+         public string getId()
+        {
+            return this.id;
+        }
+
+        public void setId(string id)
+        {
+            this.id = id;
+        }
+        public string getName()
+        {
+            return this.name;
+        }
+
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+
+        public string getSex()
+        {
+            return this.sex;
+        }
+
+        public void setSex(string sex)
+        {
+            this.sex = sex;
+        }
+
+        public string getMobile()
+        {
+            return this.mobile;
+        }
+
+        public void setMobile(string mobile)
+        {
+            this.mobile = mobile;
+        }
+
+        public int getSalary()
+        {
+            return this.salary;
+        }
+
+        public void setSalary(int salary)
+        {
+            this.salary = salary;
+        }
+
+        public DateTime getDOB()
+        {
+            return this.DOB;
+        }
+
+        public void setDOB(DateTime DOB)
+        {
+            this.DOB = DOB;
+        }
+
+        public DateTime getDOJ()
+        {
+            return this.DOJ;
+        }
+
+        public void setDOJ(DateTime DOJ)
+        {
+            this.DOJ = DOJ;
+        }
+
 
         // constructor
         public Employee(string id, string name, DateTime DOB, DateTime DOJ, string mobile, string sex, int salary){

@@ -1,3 +1,12 @@
+/*
+Title: Validation
+description: This class is  used to validate the data for the employee class
+Author: Gokul
+Created by: Gokul
+reviewed by:
+last edited : 12/10/2021
+*/
+
 using System;
 using System.Text.RegularExpressions;
 using System.Globalization;
@@ -60,7 +69,7 @@ namespace employee
             bool result = false;
             result = int.TryParse(SALARY, out validSalary); 
             if(result){
-                if(validateSalary > 10000 || validateSalary < 0){
+                if(validSalary > 10000 || validSalary < 0){
                     return false;
                 }
             }
