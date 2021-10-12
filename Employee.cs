@@ -2,7 +2,6 @@
 Title:Employee class
 description: this class servers as a blueprint for the employee object
 Author: Gokul
-Created by: Gokul
 reviewed by:
 last edited : 12/10/2020
 */

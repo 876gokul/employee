@@ -2,7 +2,6 @@
 Title: Validation
 description: This class is  used to validate the data for the employee class
 Author: Gokul
-Created by: Gokul
 reviewed by:
 last edited : 12/10/2021
 */

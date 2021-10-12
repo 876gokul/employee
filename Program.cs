@@ -2,7 +2,6 @@
 Title: Main program
 description: This file includes the CRUD operations for the employeeList
 Author: Gokul
-Created by: Gokul
 reviewed by:
 last edited : 10/12/2021
 */
