@@ -108,6 +108,7 @@ namespace employee
                 Console.WriteLine("Please enter the employee id : ");
                 id = Console.ReadLine();
                 bool result = Validate.validateId(id);
+                bool isRemoved = false;
                 if(result){
                     foreach (var employee in employeeList)
                     {
@@ -116,7 +117,11 @@ namespace employee
                             break;
                         }
                     }
-                    Console.WriteLine("Employee was removed successfully");
+                    if(isRemoved){
+                        Console.WriteLine("Employee was removed successfully");
+                    }else{
+                        Console.WriteLine("Employee was not found");
+                    }
                 }
             }
 
@@ -125,6 +130,7 @@ namespace employee
                 id = Console.ReadLine();
                 string name;
                 string mobile;
+                bool isUpdated = false;
                 bool result = Validate.validateId(id);
                 if(result){
                     foreach (var employee in employeeList)
@@ -152,6 +158,11 @@ namespace employee
                             }
                             break;
                         }
+                    }
+                    if(isUpdated){
+                        Console.WriteLine("Employee was removed successfully");
+                    }else{
+                        Console.WriteLine("Employee was not found");
                     }
                 }
             }     
