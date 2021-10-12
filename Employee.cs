@@ -12,104 +12,104 @@ namespace employee
     class Employee
     {
         // data attributes
-        public string id;
-        private string name;
-        private string sex;
-        private string mobile;
-        private int salary;
-        private DateTime DOB;
-        private DateTime DOJ;
+        public string Id;
+        private string Name;
+        private string Sex;
+        private string Mobile;
+        private int Salary;
+        private DateTime DateOfBirth;
+        private DateTime DateOfJoining;
 
-         public string getId()
+        public string GetId()
         {
-            return this.id;
+            return this.Id;
         }
 
-        public void setId(string id)
+        public void SetId(string Id)
         {
-            this.id = id;
+            this.Id = Id;
         }
-        public string getName()
+        public string GetName()
         {
-            return this.name;
-        }
-
-        public void setName(string name)
-        {
-            this.name = name;
+            return this.Name;
         }
 
-        public string getSex()
+        public void SetName(string Name)
         {
-            return this.sex;
+            this.Name = Name;
         }
 
-        public void setSex(string sex)
+        public string GetSex()
         {
-            this.sex = sex;
+            return this.Sex;
         }
 
-        public string getMobile()
+        public void SetSex(string Sex)
         {
-            return this.mobile;
+            this.Sex = Sex;
         }
 
-        public void setMobile(string mobile)
+        public string GetMobile()
         {
-            this.mobile = mobile;
+            return this.Mobile;
         }
 
-        public int getSalary()
+        public void SetMobile(string Mobile)
         {
-            return this.salary;
+            this.Mobile = Mobile;
         }
 
-        public void setSalary(int salary)
+        public int SetSalary()
         {
-            this.salary = salary;
+            return this.Salary;
         }
 
-        public DateTime getDOB()
+        public void SetSalary(int Salary)
         {
-            return this.DOB;
+            this.Salary = Salary;
         }
 
-        public void setDOB(DateTime DOB)
+        public DateTime GetDateOfBirth()
         {
-            this.DOB = DOB;
+            return this.DateOfBirth;
         }
 
-        public DateTime getDOJ()
+        public void SetDateOfBirth(DateTime DateOfBirth)
         {
-            return this.DOJ;
+            this.DateOfBirth = DateOfBirth;
         }
 
-        public void setDOJ(DateTime DOJ)
+        public DateTime GetDateOfJoining()
         {
-            this.DOJ = DOJ;
+            return this.DateOfJoining;
+        }
+
+        public void SetDateOfJoining(DateTime DateOfJoining)
+        {
+            this.DateOfJoining = DateOfJoining;
         }
 
 
         // constructor
-        public Employee(string id, string name, DateTime DOB, DateTime DOJ, string mobile, string sex, int salary){
-            this.id = id;
-            this.name = name;
-            this.DOB = DOB;
-            this.DOJ = DOJ;
-            this.mobile = mobile;
-            this.sex = sex;
-            this.salary = salary;
+        public Employee(string Id, string Name, DateTime DateOfBirth, DateTime DateOfJoining, string Mobile, string Sex, int Salary){
+            this.Id = Id;
+            this.Name = Name;
+            this.DateOfBirth = DateOfBirth;
+            this.DateOfJoining = DateOfJoining;
+            this.Mobile = Mobile;
+            this.Sex = Sex;
+            this.Salary = Salary;
         }
 
         // data member
         public void displayData(){
-            Console.WriteLine($"Employee id : {this.id}"); 
-            Console.WriteLine($"Employee name : {this.name}"); 
-            Console.WriteLine($"Employee mobile : {this.mobile}"); 
-            Console.WriteLine($"Employee Date of Birth : " + "{0}",this.DOB.ToString("dd/MM/yyyy")); 
-            Console.WriteLine($"Employee Date of Joining : " + "{0}",this.DOJ.ToString("dd/MM/yyyy")); 
-            Console.WriteLine($"Employee sex : {this.sex}"); 
-            Console.WriteLine($"Employee Salary : {this.salary}"); 
+            Console.WriteLine($"Employee id : {this.Id}"); 
+            Console.WriteLine($"Employee Name : {this.Name}"); 
+            Console.WriteLine($"Employee Mobile : {this.Mobile}"); 
+            Console.WriteLine($"Employee Date of Birth : " + "{0}",this.DateOfBirth.ToString("dd/MM/yyyy")); 
+            Console.WriteLine($"Employee Date of Joining : " + "{0}",this.DateOfJoining.ToString("dd/MM/yyyy")); 
+            Console.WriteLine($"Employee Sex : {this.Sex}"); 
+            Console.WriteLine($"Employee Salary : {this.Salary}"); 
         }
     }
 }
