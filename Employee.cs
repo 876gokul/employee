@@ -13,12 +13,21 @@ namespace employee
     {
         // data attributes
         public string Id;
-        private string Name;
-        private string Sex;
-        private string Mobile;
-        private int Salary;
-        private DateTime DateOfBirth;
-        private DateTime DateOfJoining;
+        protected string Name;
+        protected string Sex;
+        protected string Mobile;
+        protected string Email;
+        protected int Salary;
+        protected DateTime DateOfBirth;
+        protected DateTime DateOfJoining;
+        
+        public string GetEmail() {
+            return this.Email;
+        }
+
+        public void SetEmail(string Email) {
+            this.Email = Email;
+        }
 
         public string GetId()
         {
@@ -91,7 +100,7 @@ namespace employee
 
 
         // constructor
-        public Employee(string Id, string Name, DateTime DateOfBirth, DateTime DateOfJoining, string Mobile, string Sex, int Salary){
+        public Employee(string Id, string Name, DateTime DateOfBirth, DateTime DateOfJoining, string Mobile, string Sex, int Salary,string Email){
             this.Id = Id;
             this.Name = Name;
             this.DateOfBirth = DateOfBirth;
@@ -99,10 +108,11 @@ namespace employee
             this.Mobile = Mobile;
             this.Sex = Sex;
             this.Salary = Salary;
+            this.Email = Email;
         }
 
         // data member
-        public void displayData(){
+        public virtual void displayData(){
             Console.WriteLine($"Employee id : {this.Id}"); 
             Console.WriteLine($"Employee Name : {this.Name}"); 
             Console.WriteLine($"Employee Mobile : {this.Mobile}"); 
@@ -110,6 +120,14 @@ namespace employee
             Console.WriteLine($"Employee Date of Joining : " + "{0}",this.DateOfJoining.ToString("dd/MM/yyyy")); 
             Console.WriteLine($"Employee Sex : {this.Sex}"); 
             Console.WriteLine($"Employee Salary : {this.Salary}"); 
+            Console.WriteLine($"Employee Email : {this.Email}"); 
+        }
+        
+        public void displayData(string Id){
+            Console.WriteLine($"Employee id : {Id}"); 
+            Console.WriteLine($"Employee Name : {this.Name}"); 
+            Console.WriteLine($"Employee Mobile : {this.Mobile}");
+            Console.WriteLine($"Employee Salary : {this.Email}"); 
         }
     }
 }

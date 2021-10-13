@@ -96,5 +96,16 @@ namespace employee
             }
             return Result;
         }
+
+        public static bool Email(string email){
+            bool Result = false;
+            string EmailPattern = @"[0-9a-zA-Z]@[a-zA-Z]+(.[a-zA-Z]{2,}[a-zA-Z]*){0,}$";
+            Regex Pattern = new Regex(EmailPattern);
+            Result = Pattern.IsMatch(email);
+            if(!Result){
+                Console.WriteLine("your email address is not valid");
+            }
+            return Result;
+        }
     }
 }

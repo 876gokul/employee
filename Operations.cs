@@ -16,9 +16,10 @@ namespace employee
         static DateTime DateOfBirth = new DateTime();
         static DateTime DateOfJoining = new DateTime();
         
-        static string Id="", Name="", Mobile="", Dateofbirth="", Dateofjoining ="", Sex="", Salary="";
+        static string Id="", Name="", Mobile="", Dateofbirth="", Dateofjoining ="", Sex="", Salary="",Email="",prof1="",prof2="";
 
-        static string[] SubStrings = {"id","name","mobile","DOB","DOJ","sex","salary"}; 
+        static string[] SubStrings = {"id","name","mobile","DOB","DOJ","sex","salary","email"}; 
+        static string[] SubStrings1 = {"id","name","mobile","DOB","DOJ","sex","salary","email","prof1","prof2"}; 
 
 
         static int Index = 0;
@@ -74,6 +75,12 @@ namespace employee
             Result = Validate.Salary(Salary, ref ValidSalary);
             return Result;
         }
+        static bool GetAndValidateEmail(){
+            bool Result = false;
+            Email = Console.ReadLine();
+            Result = Validate.Email(Email);
+            return Result;
+        }
 
         static bool GetUserInput(string subString, int index){
             bool Result = false;
@@ -100,6 +107,19 @@ namespace employee
                 case 6:
                     Result = GetAndValidateSalary();
                 break;
+                case 7:
+                    Result = GetAndValidateEmail();
+                break;
+                case 8:
+                    Console.WriteLine("Enter the prof1");
+                    prof1 = Console.ReadLine();
+                    Result = true;
+                break;
+                case 9:
+                    Console.WriteLine("Enter the prof2");
+                    prof2 = Console.ReadLine();
+                    Result = true;
+                break;
             }
             return Result;
         }
@@ -121,10 +141,29 @@ namespace employee
             Console.WriteLine("\nThank you for the deatils");
             
             // creating a employee object 
-            Employee e = new Employee(Id, Name, DateOfBirth, DateOfJoining, Mobile, Sex, ValidSalary);
+            Employee e = new Employee(Id, Name, DateOfBirth, DateOfJoining, Mobile, Sex, ValidSalary, Email);
             // adding it to the employee object list
             EmployeeList.Add(e);
             Index=0;
+        }
+
+        public static void CreateProgrammer(){
+            foreach(var SubString in SubStrings1){    
+                ToContinue = GetUserInput(SubString, Index);
+                validate:
+                if(!ToContinue){
+                    Console.Write("\nSorry re ");
+                    ToContinue = GetUserInput(SubString, Index);
+                    goto validate;
+                }
+                Index++;
+            }
+            Console.WriteLine("\nThank you for the deatils");
+
+            Programmer p = new Programmer(Id, Name, DateOfBirth, DateOfJoining, Mobile, Sex, ValidSalary, Email, prof1, prof2);
+            EmployeeList.Add(p);
+            Index=0;
+            
         }
 
         public static void Read(){
@@ -276,7 +315,14 @@ namespace employee
                     Console.WriteLine("\nThe Employee was not found");
                 }
             }
-        }     
+        }   
+
+        public static void DisplayAll(){
+            foreach(var Employee in EmployeeList){
+                Employee.displayData(Employee.GetId());
+                Console.WriteLine();
+            }
+        }  
 
         public static void Run(){
             string Ch;
@@ -290,7 +336,9 @@ namespace employee
                 Console.WriteLine("2.Read or Display a employee");
                 Console.WriteLine("3.Update a Employee");
                 Console.WriteLine("4.Delete a Employee");
-                Console.WriteLine("5.Exit");
+                Console.WriteLine("5.Display all Employee");
+                Console.WriteLine("6.Create a programmer employee");
+                Console.WriteLine("7.Exit");
                 Operation = Console.ReadLine();
                 switch(Operation){
                     case "1": 
@@ -307,6 +355,12 @@ namespace employee
                         Delete();
                     break;
                     case "5":
+                        DisplayAll();
+                    break;
+                    case "6":
+                        CreateProgrammer();
+                    break;
+                    case "7":
                         return;
                     default: 
                         Console.WriteLine("\nEnter a valid choice");
