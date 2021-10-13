@@ -157,9 +157,9 @@ namespace employee
                 }
             }
             if(isRemoved){
-                Console.WriteLine("Employee was removed successfully");
+                Console.WriteLine("\nEmployee was removed successfully");
             }else{
-                Console.WriteLine("Employee was not found");
+                Console.WriteLine("\nEmployee was not found");
             }
         }
 
@@ -174,6 +174,7 @@ namespace employee
                 foreach (var Employee in EmployeeList)
                 {
                     if(Employee.Id == Id){
+                        isUpdated = true;
                         do{
                             Console.WriteLine("Choose what you want to update");
                             Console.WriteLine("1.Update Name");
@@ -182,6 +183,7 @@ namespace employee
                             Console.WriteLine("4.Update Date Of Joining");
                             Console.WriteLine("5.Update Sex");
                             Console.WriteLine("6.Update Salary");
+                            Console.WriteLine("7.Exit");
                             choice = Console.ReadLine();
                             switch (choice)
                             {
@@ -217,7 +219,7 @@ namespace employee
                                     Console.Write("\nSorry re ");
                                     goto DOB;
                                 }else{
-                                    Employee.SetDateOfBirth(DOB);
+                                    Employee.SetDateOfBirth(DateOfBirth);
                                 }
                                 break;
 
@@ -225,15 +227,53 @@ namespace employee
                                 DOJ:
                                 Console.WriteLine("enter the Date of Joining : ");
                                 Result = GetAndValidateDOJ();
+                                if(!Result){
+                                    Console.Write("\nSorry re ");
+                                    goto DOJ;
+                                }else{
+                                    Employee.SetDateOfJoining(DateOfJoining);
+                                }
+                                break;
+
+                                case "5": 
+                                Sex:
+                                Console.WriteLine("enter the Sex : ");
+                                Result = GetAndValidateSex();
+                                if(!Result){
+                                    Console.Write("\nSorry re ");
+                                    goto Sex;
+                                }else{
+                                    Employee.SetSex(Sex);
+                                }
+                                break;
                                 
+                                case "6": 
+                                Salary:
+                                Console.WriteLine("enter the Salary : ");
+                                Result = GetAndValidateSalary();
+                                if(!Result){
+                                    Console.Write("\nSorry re ");
+                                    goto Salary;
+                                }else{
+                                    Employee.SetSalary(ValidSalary);
+                                }
+                                break;
+
+                                case "7":
+                                Flag = false;
+                                break;
+
+                                default: Console.WriteLine("Enter a vaild option between 1 and 7");
+                                break;
+
                             }
-                        }while(Flag)
+                        }while(Flag);
                     }
                 }
                 if(isUpdated){
-                    Console.WriteLine("Employee was updated successfully");
+                    Console.WriteLine("\nThe Employee was updated successfully");
                 }else{
-                    Console.WriteLine("Employee was not found");
+                    Console.WriteLine("\nThe Employee was not found");
                 }
             }
         }     
@@ -255,23 +295,21 @@ namespace employee
                 switch(Operation){
                     case "1": 
                         Create();
-                        Console.WriteLine("The employee was created successfully\n");
+                        Console.WriteLine("\nThe employee was created successfully\n");
                     break;
                     case "2": 
                         Read();
                     break;
                     case "3": 
                         Update();
-                        Console.WriteLine("The employee was updated successfully\n");
                     break;
                     case "4": 
                         Delete();
-                        Console.WriteLine("The employee was removed successfully\n");
                     break;
                     case "5":
                         return;
                     default: 
-                        Console.WriteLine("Enter a valid choice");
+                        Console.WriteLine("\nEnter a valid choice");
                     break;
                 }
                 Console.WriteLine("press c to continue");
